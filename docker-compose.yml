@@ -6,3 +6,18 @@ services:
             context: ./front-management-service
         ports:
             - '3000:80'
+    eureka-server:
+        build:
+            context: ./myshop-eureka-server
+        ports:
+            - '8761:8761'
+            
+            
+            
+            
+  *********          
+   pour les clients: use environnements dans application properties apres...
+            environment:
+                SERVER_PORT: 8080
+                EUREKA_HOST: eureka-server
+                EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: 'true'
