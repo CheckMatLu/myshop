@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { UserComponent } from './user/user.component';
   ],
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    ProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

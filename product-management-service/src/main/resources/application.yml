@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: product-management-service
+server:
+  port: 8100
+
+#logging
+logging:
+  level:
+    root: ERROR
+    org.springframework.data: debug
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS}

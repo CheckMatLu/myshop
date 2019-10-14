@@ -6,18 +6,19 @@ services:
             context: ./front-management-service
         ports:
             - '3000:80'
-    eureka-server:
+        environment:
+            - PRODUCT_MGMT_URL=http://product-management-service:8100
+    eureka:
         build:
             context: ./myshop-eureka-server
         ports:
             - '8761:8761'
-            
-            
-            
-            
-  *********          
-   pour les clients: use environnements dans application properties apres...
-            environment:
-                SERVER_PORT: 8080
-                EUREKA_HOST: eureka-server
-                EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: 'true'
+    product-management-service:
+        links:
+            - eureka
+        build:
+            context: ./product-management-service
+        ports:
+            - '8100:8100'
+        environment:
+            - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka

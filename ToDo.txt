@@ -1,0 +1,5 @@
+
+- user mgmt service : and plug it to eureka
+- user mgmt service: plug a mongo Db
+- user mgmt service: call it from front
+...
