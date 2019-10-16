@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const BASE_URL = 'http://192.168.99.101:8100';
+const BASE_URL = 'http://192.168.99.101:8765/product-management-service';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   constructor(private _http: HttpClient) { }
 
   ngOnInit() {
-    this._http.get(`${BASE_URL}/product-management/products`).subscribe(products => (this.products = products));
+    this._http.get(`${BASE_URL}/products`).subscribe(products => (this.products = products));
   }
 
 }

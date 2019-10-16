@@ -13,4 +13,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_SERVER_ADDRESS}
+      defaultZone: ${EUREKA_SERVER_ADDRESS} #http://localhost:8761/eureka
+      
+frontManagement:
+  url: ${FRONT_MGMT_URL}

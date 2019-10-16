@@ -13,6 +13,13 @@ services:
             context: ./myshop-eureka-server
         ports:
             - '8761:8761'
+    zuul:
+        build:
+            context: ./myshop-zuul-server
+        ports:
+            - '8765:8765'
+        environment:
+            - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
     product-management-service:
         links:
             - eureka
@@ -22,3 +29,4 @@ services:
             - '8100:8100'
         environment:
             - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
+            #- FRONT_MGMT_URL=http://front-management-service:3000

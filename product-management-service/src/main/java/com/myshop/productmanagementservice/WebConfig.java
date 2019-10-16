@@ -16,9 +16,9 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		System.out.println(
-				"********** TEST env EUREKA client: " + env.getProperty("eureka.client.service-url.default-zone"));
-		registry.addMapping("/product-management/products*").allowedOrigins("http://192.168.99.101:80",
-				"http://192.168.99.101:3000");
+		// System.out.println("********** TEST env front client: " +
+		// env.getProperty("frontManagement.url"));
+		registry.addMapping("/product-management/products*").allowedOrigins("http://192.168.99.101:3000");
+		// .allowedOrigins(env.getProperty("frontManagement.url"));
 	}
 }
