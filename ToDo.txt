@@ -1,17 +1,17 @@
 
-Done:
-
-- user mgmt service : and plug it to eureka
-- user mgmt service: plug a mongo Db
-- user mgmt service: call it from front
-...
-
 ToDo:
 
-- Remove hardoced url in:
+- handle CORS problems
+- mgmt service: plug a mongo Db
+- Remove hardcoded url in:
 	Front: product.component.ts
-	Product service:
+	Product service / Zuul:
 		WebConfig
-- install Zull API Gateway to communicate
+- Look at feign, how to integrate
 - Externalise Config (spring cloud config) 
+- impl Spring security
+
+optional:
+- downsize containers
+- 
 	

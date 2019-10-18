@@ -1,4 +1,4 @@
-package com.myshop.productmanagementservice;
+package com.myshop.zuulserver.myshopzuulserver;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
