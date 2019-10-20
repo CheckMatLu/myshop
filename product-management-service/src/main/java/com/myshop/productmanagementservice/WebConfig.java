@@ -15,14 +15,11 @@ public class WebConfig implements WebMvcConfigurer {
 	@Autowired
 	private Environment env;
 
-	@Value("${frontManagement.url}")
-	private String allowedOrigin;
+	@Value("${frontService.url}")
+	private String allowedOrigins;
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		// System.out.println("********** TEST env front client: " +
-		// env.getProperty("frontManagement.url"));
-		registry.addMapping("/product-management/products*").allowedOrigins(allowedOrigin);
-		// .allowedOrigins(env.getProperty("frontManagement.url"));
+		registry.addMapping("/products*").allowedOrigins(allowedOrigins);
 	}
 }
