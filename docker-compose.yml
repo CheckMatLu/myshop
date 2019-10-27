@@ -15,18 +15,20 @@ services:
         ports:
             - '8761:8761'
 
-#    config-server:
-#        links:
-#            - eureka
-#        build:
-#            context: ./myshop-config-server
-#        ports:
-#            - '8888:8888'
-#        environment:
-#            - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
+    config-server:
+        depends_on:
+            - eureka
+        build:
+            context: ./myshop-config-server
+        volumes:
+            - /config-repo:/repo
+        ports:
+            - '8888:8888'
+        environment:
+            - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
 
     zuul:
-        links:
+        depends_on:
             - eureka
         build:
             context: ./myshop-zuul-server
@@ -36,7 +38,7 @@ services:
             - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
 
     product-management-service:
-        links:
+        depends_on:
             - eureka
         build:
             context: ./product-management-service
@@ -44,5 +46,6 @@ services:
             - '8100:8100'
         environment:
             - EUREKA_SERVER_ADDRESS=http://eureka:8761/eureka
+            - CLOUD_CONFIG_ADDRESS=http://config-server:8888
             - FRONT_MGMT_URL=http://192.168.99.101:3000
             

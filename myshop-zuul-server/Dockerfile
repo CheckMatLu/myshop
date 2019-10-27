@@ -1,4 +1,4 @@
-FROM openjdk:12-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 8765
 COPY ./target/myshop-zuul-server-0.0.1-SNAPSHOT.jar app.jar
